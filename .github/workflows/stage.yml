@@ -1,8 +1,10 @@
 name: Stage mode automation
 
 on:
-# listens to a workflow trigger event
-  workflow_run:
+  workflow_call:
+# on:
+# # listens to a workflow trigger event
+#   workflow_run:
     # workflows:
     #   # this represents the name key of the workflow
     #   -  Automated Multi Branch workflow
