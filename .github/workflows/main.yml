@@ -31,6 +31,9 @@ jobs:
     env:
     # this is to pass in the out get_branch job
       BRANCH: ${{ needs.get_branch.output.extract_branch }}
-    run: |
-      echo $BRANCH
-
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v3
+      - name: Check the output of the env file
+        run: |
+          echo $BRANCH
