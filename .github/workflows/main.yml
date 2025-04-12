@@ -36,7 +36,7 @@ jobs:
     #   BRANCH: ${{ needs.get_branch.outputs.branch }}
     # this will run the production workflow
     if: needs.get_branch.outputs.branch == 'prod'
-    uses: './github/workflows/prod.yml'
+    uses: './.github/workflows/prod.yml'
     # runs-on: ubuntu-latest
     # steps:
     #   - name: Checkout code
@@ -51,7 +51,7 @@ jobs:
       - get_branch
     name: Stage Trigger workflow
     if: needs.get_branch.outputs.branch == 'stage'
-    uses: './github/workflows/stage.yml'
+    uses: './.github/workflows/stage.yml'
     # runs-on: ubuntu-latest
     # steps:
     #   - name: Checkout code
@@ -65,7 +65,7 @@ jobs:
       - get_branch
     name: Dev Trigger workflow
     if: needs.get_branch.outputs.branch == 'main'
-    uses: './github/workflows/dev.yml'
+    uses: './.github/workflows/dev.yml'
     # runs-on: ubuntu-latest
     # steps:
     #   - name: Checkout code
