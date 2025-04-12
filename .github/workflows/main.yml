@@ -3,6 +3,7 @@ name: Automated Multi Branch workflow
 on:
   push:
     branches:
+    
       - main
       - stage
       - prod
