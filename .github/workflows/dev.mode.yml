@@ -3,7 +3,12 @@ name: Dev mode automation
 on:
 # listens to a workflow trigger event
   workflow_run:
-
+    workflows:
+      # this represents the name key of the workflow
+      -  Automated Multi Branch workflow
+      # this represent that status of the workflow when they have been ran, we have completed, failed,success
+    types:
+      - completed
 jobs:
   linting:
     name: This is linting automation
