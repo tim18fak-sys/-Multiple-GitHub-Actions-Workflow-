@@ -41,7 +41,7 @@ jobs:
       - name: Checkout code
         uses: actions/checkout@v3
       - name: Calling the production workflow
-        uses: './.github/workflows/prod.yml'
+        uses: 'tim18fak-sys/-Multiple-GitHub-Actions-Workflow-/.github/workflows/prod.yml@main'
         # run: |
         #   echo "Running production workflow"
           
@@ -55,7 +55,7 @@ jobs:
       - name: Checkout code
         uses: actions/checkout@v3
       - name: Calling the stage workflow
-        uses: './.github/workflows/stage.yml'
+        uses: 'tim18fak-sys/-Multiple-GitHub-Actions-Workflow-/.github/workflows/stage.yml@main'
         # run: |
         #   echo "Running stage workflow"
   dev_condition:
@@ -68,7 +68,7 @@ jobs:
       - name: Checkout code
         uses: actions/checkout@v3
       - name: Calling the dev workflow
-        uses: './.github/workflows/dev.yml'
+        uses: 'tim18fak-sys/-Multiple-GitHub-Actions-Workflow-/.github/workflows/dev.yml@main'
         # run: |
         #   echo "Running dev workflow"
 
