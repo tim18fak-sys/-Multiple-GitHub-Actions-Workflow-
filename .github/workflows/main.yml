@@ -1,0 +1,36 @@
+name: Automated Multi Branch workflow
+
+on:
+  push:
+    branches:
+      - main
+      - stage
+      - prod
+
+# now the jobs
+job:
+  get_branch:
+    name: Get the branch that triggered the event
+    runs-on: ubuntu-latest
+    output:
+      extract_branch: ${{ steps.extract_branch.outputs.branch }}
+    steps:
+      - name: Checkout code
+        uses: action/checkout@3
+      # now look for a way to know which branch triggered the push event
+      - name: Get the branch that triggered the push
+        run: |
+          BRANCH_NAME="${GITHUB_REF#refs/heads/}"
+          # now push the output so another job can use it
+          echo "::set-output name=branch::$(echo BRANCH_NAME)"
+  multi_auto:
+    needs:
+    - get_branch
+    name: This will trigger the different workflows
+    runs-on: ubuntu-latest
+    env:
+    # this is to pass in the out get_branch job
+      BRANCH: ${{ needs.get_branch.output.extract_branch }}
+    run: |
+      echo $BRANCH
+
