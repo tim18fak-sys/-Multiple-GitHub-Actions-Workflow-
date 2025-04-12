@@ -25,7 +25,7 @@ jobs:
         run: |
           BRANCH_NAME="${GITHUB_REF#refs/heads/}"
           # now push the output so another job can use it
-          echo "::set-output name=branch::$(echo BRA"
+          echo "::set-output name=branch::${BRANCH_NAME}"
           echo $BRANCH_NAME
   multi_auto:
     needs:
