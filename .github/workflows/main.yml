@@ -25,7 +25,10 @@ jobs:
         run: |
           BRANCH_NAME="${GITHUB_REF#refs/heads/}"
           # now push the output so another job can use it
-          echo "::set-output name=branch::${BRANCH_NAME}"
+          # deprecated due to security issues
+          # echo "::set-output name=branch::${BRANCH_NAME}"
+          # better way of doing things
+            echo "branch=$BRANCH_NAME" >> $GITHUB_OUTPUT
           echo $BRANCH_NAME
         # the jobs will only run if they match the need condition
   prod_condition:
