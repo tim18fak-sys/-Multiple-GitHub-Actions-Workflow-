@@ -3,7 +3,6 @@ name: Automated Multi Branch workflow
 on:
   push:
     branches:
-    
       - main
       - stage
       - prod
@@ -17,7 +16,7 @@ job:
       extract_branch: ${{ steps.extract_branch.outputs.branch }}
     steps:
       - name: Checkout code
-        uses: action/checkout@3
+        uses: actions/checkout@v3
       # now look for a way to know which branch triggered the push event
       - name: Get the branch that triggered the push
         run: |
