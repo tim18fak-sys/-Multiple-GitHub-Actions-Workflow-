@@ -41,7 +41,9 @@ jobs:
       - name: Checkout code
         uses: actions/checkout@v3
       - name: Calling the production workflow
-        uses: './.github/workflows/prod.yml'
+        # uses: './.github/workflows/prod.yml'
+        run: |
+          echo "Running production workflow"
           
   stage_condition:
     needs: 
@@ -52,8 +54,10 @@ jobs:
     steps:
       - name: Checkout code
         uses: actions/checkout@v3
-      - name: Calling the production workflow
-        uses: './.github/workflows/stage.yml'
+      - name: Calling the stage workflow
+        # uses: './.github/workflows/stage.yml'
+        run: |
+          echo "Running stage workflow"
   dev_condition:
     needs: 
       - get_branch
@@ -63,8 +67,10 @@ jobs:
     steps:
       - name: Checkout code
         uses: actions/checkout@v3
-      - name: Calling the production workflow
-        uses: './.github/workflows/dev.yml'
+      - name: Calling the dev workflow
+        # uses: './.github/workflows/dev.yml'
+        run: |
+          echo "Running dev workflow"
 
 
   
