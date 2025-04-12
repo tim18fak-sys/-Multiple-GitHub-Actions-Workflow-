@@ -8,11 +8,11 @@ on:
       - prod
 
 # now the jobs
-job:
+jobs:
   get_branch:
     name: Get the branch that triggered the event
     runs-on: ubuntu-latest
-    output:
+    outputs:
       extract_branch: ${{ steps.extract_branch.outputs.branch }}
     steps:
       - name: Checkout code
