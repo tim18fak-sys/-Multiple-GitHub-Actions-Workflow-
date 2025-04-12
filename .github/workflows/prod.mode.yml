@@ -1,0 +1,16 @@
+name: Prod mode automation
+
+on:
+# listens to a workflow trigger event
+  workflow_run:
+
+jobs:
+  linting:
+    name: This is linting automation
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v3
+      - name: Linting
+        run: |
+          echo "Linting Prod ran"
